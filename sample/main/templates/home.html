@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load valuation %}
+{% block content %}
+
+{% for post in posts %}
+    <h3>{{ post }}</h3>
+    
+    Average Score: {% get_valuation_score post 'like-dislike' %}
+    <br/>{% render_valuation_status post 'like-dislike' %}
+    {% render_valuation_form  post 'like-dislike' %}
+    <hr/>
+{% endfor %}
+{% endblock %}
